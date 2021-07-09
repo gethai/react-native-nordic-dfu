@@ -214,7 +214,11 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
       } else {
         CBPeripheral * peripheral = [peripherals objectAtIndex:0];
 
-        NSURL * url = [NSURL URLWithString:filePath];
+        NSString* zipPath = [[NSBundle mainBundle] pathForResource:filePath ofType:@"zip"];
+          
+        NSURL* url = [NSURL fileURLWithPath:zipPath];
+
+        NSLog("DFU Package URL is %@",url);
 
         DFUFirmware * firmware = [[DFUFirmware alloc] initWithUrlToZipFile:url];
 
