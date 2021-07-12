@@ -218,7 +218,7 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
           
         NSURL* url = [NSURL fileURLWithPath:zipPath];
 
-        NSLog("DFU Package URL is %@",url);
+        NSLog(@"DFU Package URL is %@",url);
 
         DFUFirmware * firmware = [[DFUFirmware alloc] initWithUrlToZipFile:url];
 
