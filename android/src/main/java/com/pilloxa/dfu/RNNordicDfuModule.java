@@ -1,6 +1,6 @@
 
 package com.pilloxa.dfu;
-
+import android.net.Uri;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
