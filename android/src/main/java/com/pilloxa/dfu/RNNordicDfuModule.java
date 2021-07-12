@@ -24,9 +24,6 @@ public class RNNordicDfuModule extends ReactContextBaseJavaModule implements Lif
         super(reactContext);
         reactContext.addLifecycleEventListener(this);
         this.reactContext = reactContext;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            DfuServiceInitiator.createDfuNotificationChannel(reactContext);
-        }
     }
 
     @ReactMethod
@@ -39,7 +36,7 @@ public class RNNordicDfuModule extends ReactContextBaseJavaModule implements Lif
             starter.setDeviceName(name);
         }
         starter.setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true);
-        starter.setZip(Uri.parse("android.resource:////"+BuildConfig.APPLICATION_ID+filePath));
+        starter.setZip(Uri.parse(filePath));
         final DfuServiceController controller = starter.start(this.reactContext, DfuService.class);
     }
 
