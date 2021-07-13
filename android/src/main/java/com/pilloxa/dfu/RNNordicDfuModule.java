@@ -31,6 +31,7 @@ public class RNNordicDfuModule extends ReactContextBaseJavaModule implements Lif
         mPromise = promise;
         final DfuServiceInitiator starter = new DfuServiceInitiator(address)
                 .setKeepBond(false)
+                .setDisableNotification(true)
                 .setForeground(false);
         if (name != null) {
             starter.setDeviceName(name);
