@@ -214,7 +214,7 @@ RCT_EXPORT_METHOD(startDFU:(NSString *)deviceAddress
       } else {
         CBPeripheral * peripheral = [peripherals objectAtIndex:0];
 
-        NSString* zipPath = [[NSBundle mainBundle] pathForResource:filePath ofType:@"zip"];
+        NSString* zipPath = [filePath hasSuffix:@"zip"] ? filePath:[[NSBundle mainBundle] pathForResource:filePath ofType:@"zip"];
           
         NSURL* url = [NSURL fileURLWithPath:zipPath];
 
