@@ -1,12 +1,12 @@
 {
   "name": "@gethai/react-native-nordic-dfu",
-  "version": "1.7.301",
+  "version": "1.8.301",
   "description": "Nordic Device Firmware Update for React Native",
   "main": "index.js",
-  "repository":"https://github.com/gethai/shared",
+  "repository": "https://github.com/gethai/shared",
   "publishConfig": {
-      "registry":"https://npm.pkg.github.com"
-    },
+    "registry": "https://npm.pkg.github.com"
+  },
   "url": "https://github.com/Pilloxa/react-native-nordic-dfu",
   "scripts": {
     "test": "echo \"No test specified\"",
