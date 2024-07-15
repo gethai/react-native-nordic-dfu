@@ -1,6 +1,6 @@
 
 package com.pilloxa.dfu;
-
+import android.net.Uri;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
@@ -24,21 +24,20 @@ public class RNNordicDfuModule extends ReactContextBaseJavaModule implements Lif
         super(reactContext);
         reactContext.addLifecycleEventListener(this);
         this.reactContext = reactContext;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            DfuServiceInitiator.createDfuNotificationChannel(reactContext);
-        }
     }
 
     @ReactMethod
     public void startDFU(String address, String name, String filePath, Promise promise) {
         mPromise = promise;
         final DfuServiceInitiator starter = new DfuServiceInitiator(address)
-                .setKeepBond(false);
+                .setKeepBond(false)
+                .setDisableNotification(true)
+                .setForeground(false);
         if (name != null) {
             starter.setDeviceName(name);
         }
         starter.setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true);
-        starter.setZip(filePath);
+        starter.setZip(Uri.parse(filePath));
         final DfuServiceController controller = starter.start(this.reactContext, DfuService.class);
     }
 
