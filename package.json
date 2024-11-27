@@ -1,6 +1,6 @@
 {
   "name": "@gethai/react-native-nordic-dfu",
-  "version": "1.8.301",
+  "version": "2.992.1",
   "description": "Nordic Device Firmware Update for React Native",
   "main": "index.js",
   "repository": "https://github.com/gethai/shared",
